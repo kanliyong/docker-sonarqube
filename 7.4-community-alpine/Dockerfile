@@ -41,4 +41,6 @@ VOLUME "$SONARQUBE_HOME/data"
 
 WORKDIR $SONARQUBE_HOME
 COPY run.sh $SONARQUBE_HOME/bin/
+RUN chown -R sonarqube:sonarqube $SONARQUBE_HOME
+USER sonarqube
 ENTRYPOINT ["./bin/run.sh"]
